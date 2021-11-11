@@ -2,6 +2,7 @@
 float root(float r);
 float combination(float a, int b);
 float power(float x, int n);
+
 int main(void){
     float a;
     scanf("%f", &a);
@@ -17,12 +18,15 @@ float root(float r){
         r /= 100;
         p++;
     }
+    
 for(float i = 0;i < 1000;i++) {
     ans += combination(0.5, i) * power((r-4)/4, i);
-}
+    }
     return ans*2*power(10,p);
 
 }
+
+
 float combination(float a, int b){
     float c = 1;
     while(b > 0) {
@@ -31,6 +35,7 @@ float combination(float a, int b){
     }
     return c;
 }
+
 float power(float x, int n){
     return n == 0 ? 1 : x * power(x,n-1);
 }
