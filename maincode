@@ -1,0 +1,36 @@
+#include <stdio.h>
+float root(float r);
+float combination(float a, int b);
+float power(float x, int n);
+int main(void){
+    float a;
+    scanf("%f", &a);
+
+    printf("%f\n%f", root(a),power(root(a),2) );
+    return 0;
+}
+
+float root(float r){
+    int p = 0 ;
+    float ans = 0;
+    while(r > 8){
+        r /= 100;
+        p++;
+    }
+for(float i = 0;i < 1000;i++) {
+    ans += combination(0.5, i) * power((r-4)/4, i);
+}
+    return ans*2*power(10,p);
+
+}
+float combination(float a, int b){
+    float c = 1;
+    while(b > 0) {
+        c *= a--;
+        c /= b--;
+    }
+    return c;
+}
+float power(float x, int n){
+    return n == 0 ? 1 : x * power(x,n-1);
+}
