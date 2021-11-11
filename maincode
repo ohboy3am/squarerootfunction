@@ -15,14 +15,14 @@ float root(float r){
     int p = 0 ;
     float ans = 0;
     while(r > 8){
-        r /= 100;
+        r /= 4;
         p++;
     }
     
 for(float i = 0;i < 1000;i++) {
     ans += combination(0.5, i) * power((r-4)/4, i);
     }
-    return ans*2*power(10,p);
+    return ans*2*power(2,p);
 
 }
 
